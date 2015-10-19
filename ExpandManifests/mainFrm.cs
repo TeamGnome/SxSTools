@@ -36,7 +36,7 @@ namespace ExpandManifests
 
          string newName = fi.FullName.Replace(".manifest", ".new.manifest");
 
-         txtOutput.Text = GetManifest(txtManifest.Text).ToString();
+         txtOutput.Text = PatchAPI.GetManifest(txtManifest.Text).ToString();
 
          //bool success = PatchAPI.ApplyDeltaW(DELTA_FLAG_TYPE.DELTA_FLAG_NONE, "manifest.bin", fi.FullName, newName);
          //MessageBox.Show(success ? "The manifest has been extracted successfully" : $"Error: 0x{Marshal.GetLastWin32Error():X8}");
@@ -48,59 +48,6 @@ namespace ExpandManifests
          //{
          //   txtOutput.Text = tr.ReadToEnd();
          //}
-      }
-
-      private unsafe XDocument GetManifest(string path)
-      {
-         byte[] source, delta, output;
-         DELTA_OUTPUT outData;
-         bool success = false;
-
-         using (FileStream fStr = new FileStream("manifest.bin", FileMode.Open, FileAccess.Read, FileShare.Read))
-         using (MemoryStream mStr = new MemoryStream((int)fStr.Length))
-         {
-            fStr.CopyTo(mStr);
-            source = mStr.ToArray();
-         }
-
-         using (FileStream fStr = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read))
-         using (MemoryStream mStr = new MemoryStream((int)fStr.Length))
-         {
-            fStr.Position = 4;
-            fStr.CopyTo(mStr);
-            delta = mStr.ToArray();
-         }
-
-         fixed (byte* sourcePtr = source)
-         fixed (byte* deltaPtr = delta)
-         {
-            DELTA_INPUT sourceData = new DELTA_INPUT()
-            {
-               lpStart = new IntPtr(sourcePtr),
-               uSize = (uint)source.Length,
-               Editable = false
-            };
-
-            DELTA_INPUT deltaData = new DELTA_INPUT()
-            {
-               lpStart = new IntPtr(deltaPtr),
-               uSize = (uint)delta.Length,
-               Editable = false
-            };
-
-            success = PatchAPI.ApplyDeltaB(DELTA_FLAG_TYPE.DELTA_FLAG_NONE, sourceData, deltaData, out outData);
-
-            output = new byte[outData.uSize];
-            for (int i = 0; i < outData.uSize; i++)
-            {
-               output[i] = Marshal.PtrToStructure<byte>(outData.lpStart + i);
-            }
-         }
-
-         using (MemoryStream mStr = new MemoryStream(output))
-         {
-            return XDocument.Load(mStr);
-         }
       }
 
       private void btnManifest_Click(object sender, EventArgs e)
@@ -133,6 +80,13 @@ namespace ExpandManifests
                txtSource.Text = ofd.FileName;
             }
          }
+      }
+
+      private void btnFolder_Click(object sender, EventArgs e)
+      {
+         pathDumpFrm pdf = new pathDumpFrm();
+         pdf.Show();
+         Hide();
       }
    }
 }

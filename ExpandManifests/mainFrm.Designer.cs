@@ -36,6 +36,7 @@
          this.btnSource = new System.Windows.Forms.Button();
          this.btnLoad = new System.Windows.Forms.Button();
          this.txtOutput = new System.Windows.Forms.TextBox();
+         this.btnFolder = new System.Windows.Forms.Button();
          this.SuspendLayout();
          // 
          // lblManifest
@@ -106,7 +107,7 @@
          this.btnLoad.Location = new System.Drawing.Point(497, 67);
          this.btnLoad.Name = "btnLoad";
          this.btnLoad.Size = new System.Drawing.Size(75, 24);
-         this.btnLoad.TabIndex = 3;
+         this.btnLoad.TabIndex = 4;
          this.btnLoad.Text = "Load";
          this.btnLoad.UseVisualStyleBackColor = true;
          this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
@@ -122,7 +123,18 @@
          this.txtOutput.ReadOnly = true;
          this.txtOutput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
          this.txtOutput.Size = new System.Drawing.Size(556, 152);
-         this.txtOutput.TabIndex = 4;
+         this.txtOutput.TabIndex = 5;
+         // 
+         // btnFolder
+         // 
+         this.btnFolder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.btnFolder.Location = new System.Drawing.Point(390, 67);
+         this.btnFolder.Name = "btnFolder";
+         this.btnFolder.Size = new System.Drawing.Size(100, 24);
+         this.btnFolder.TabIndex = 4;
+         this.btnFolder.Text = "Load Folder...";
+         this.btnFolder.UseVisualStyleBackColor = true;
+         this.btnFolder.Click += new System.EventHandler(this.btnFolder_Click);
          // 
          // mainFrm
          // 
@@ -130,6 +142,7 @@
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          this.ClientSize = new System.Drawing.Size(584, 261);
          this.Controls.Add(this.txtOutput);
+         this.Controls.Add(this.btnFolder);
          this.Controls.Add(this.btnLoad);
          this.Controls.Add(this.btnSource);
          this.Controls.Add(this.btnManifest);
@@ -156,6 +169,7 @@
       private System.Windows.Forms.Button btnSource;
       private System.Windows.Forms.Button btnLoad;
       private System.Windows.Forms.TextBox txtOutput;
+      private System.Windows.Forms.Button btnFolder;
    }
 }
 
