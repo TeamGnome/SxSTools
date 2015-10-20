@@ -48,26 +48,43 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="mainFrm.cs">
+    <Compile Include="frmEntry.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="mainFrm.Designer.cs">
-      <DependentUpon>mainFrm.cs</DependentUpon>
+    <Compile Include="frmEntry.Designer.cs">
+      <DependentUpon>frmEntry.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interop.cs" />
-    <Compile Include="pathDumpFrm.cs">
+    <Compile Include="frmViewInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="pathDumpFrm.Designer.cs">
-      <DependentUpon>pathDumpFrm.cs</DependentUpon>
+    <Compile Include="frmViewInfo.Designer.cs">
+      <DependentUpon>frmViewInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmViewManifest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmViewManifest.Designer.cs">
+      <DependentUpon>frmViewManifest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDumpPaths.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDumpPaths.Designer.cs">
+      <DependentUpon>frmDumpPaths.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="mainFrm.resx">
-      <DependentUpon>mainFrm.cs</DependentUpon>
+    <EmbeddedResource Include="frmEntry.resx">
+      <DependentUpon>frmEntry.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="pathDumpFrm.resx">
-      <DependentUpon>pathDumpFrm.cs</DependentUpon>
+    <EmbeddedResource Include="frmViewInfo.resx">
+      <DependentUpon>frmViewInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmViewManifest.resx">
+      <DependentUpon>frmViewManifest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDumpPaths.resx">
+      <DependentUpon>frmDumpPaths.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -78,9 +95,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="manifest.bin">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -93,6 +107,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LibSxS\LibSxS.csproj">
+      <Project>{5954a4e0-deeb-4c93-9377-57236d587b0a}</Project>
+      <Name>LibSxS</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LibSxS.Delta;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,9 @@ using System.Xml.Linq;
 
 namespace ExpandManifests
 {
-   public partial class pathDumpFrm : Form
+   public partial class frmDumpPaths : Form
    {
-      public pathDumpFrm()
+      public frmDumpPaths()
       {
          InitializeComponent();
       }
@@ -32,7 +33,7 @@ namespace ExpandManifests
 
                   foreach (string manifest in manifests)
                   {
-                     manifestDocs.Add(PatchAPI.GetManifest(manifest));
+                     manifestDocs.Add(DeltaAPI.GetManifest(manifest));
                   }
 
                   var paths = manifestDocs

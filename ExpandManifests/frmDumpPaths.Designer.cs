@@ -1,6 +1,6 @@
 ﻿namespace ExpandManifests
 {
-   partial class pathDumpFrm
+   partial class frmDumpPaths
    {
       /// <summary>
       /// Required designer variable.
