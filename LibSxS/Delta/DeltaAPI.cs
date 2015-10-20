@@ -35,6 +35,9 @@ namespace LibSxS.Delta
          string lpDeltaName,
          out DeltaHeaderInfo lpHeaderInfo);
 
+      [DllImport("msdelta.dll", SetLastError = true)]
+      public static extern bool DeltaFree(IntPtr lpMemory);
+
 
       public static unsafe DeltaHeaderInfo GetDeltaInformation(string path)
       {
@@ -107,12 +110,16 @@ namespace LibSxS.Delta
             };
 
             success = ApplyDeltaB(DeltaInputFlags.DELTA_FLAG_NONE, sourceData, deltaData, out outData);
+            if (!success) throw new Win32Exception(Marshal.GetLastWin32Error());
 
             output = new byte[outData.uSize];
             for (int i = 0; i < outData.uSize; i++)
             {
                output[i] = (byte)Marshal.PtrToStructure(outData.lpStart + i, typeof(byte));
             }
+
+            success = DeltaFree(outData.lpStart);
+            if (!success) throw new Win32Exception(Marshal.GetLastWin32Error());
          }
 
          using (MemoryStream mStr = new MemoryStream(output))
