@@ -48,6 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmDumpPathsXml.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDumpPathsXml.Designer.cs">
+      <DependentUpon>frmDumpPathsXml.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmEntry.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +80,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmDumpPathsXml.resx">
+      <DependentUpon>frmDumpPathsXml.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmEntry.resx">
       <DependentUpon>frmEntry.cs</DependentUpon>
     </EmbeddedResource>

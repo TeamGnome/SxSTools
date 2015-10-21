@@ -33,6 +33,14 @@ namespace ExpandManifests
          Hide();
       }
 
+      private void btnPathsXml_Click(object sender, EventArgs e)
+      {
+         frmDumpPathsXml f = new frmDumpPathsXml();
+         f.Show();
+
+         Hide();
+      }
+
       private void btnDelta_Click(object sender, EventArgs e)
       {
          frmViewInfo f = new frmViewInfo();

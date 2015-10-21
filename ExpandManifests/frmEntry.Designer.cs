@@ -34,6 +34,7 @@
          this.grpOther = new System.Windows.Forms.GroupBox();
          this.btnDelta = new System.Windows.Forms.Button();
          this.splitContainer = new System.Windows.Forms.SplitContainer();
+         this.btnPathsXml = new System.Windows.Forms.Button();
          this.grpManfiest.SuspendLayout();
          this.grpOther.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
@@ -44,6 +45,7 @@
          // 
          // grpManfiest
          // 
+         this.grpManfiest.Controls.Add(this.btnPathsXml);
          this.grpManfiest.Controls.Add(this.btnPaths);
          this.grpManfiest.Controls.Add(this.btnManifest);
          this.grpManfiest.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -122,6 +124,18 @@
          this.splitContainer.SplitterWidth = 2;
          this.splitContainer.TabIndex = 1;
          // 
+         // btnPathsXml
+         // 
+         this.btnPathsXml.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.btnPathsXml.Location = new System.Drawing.Point(7, 80);
+         this.btnPathsXml.Name = "btnPathsXml";
+         this.btnPathsXml.Size = new System.Drawing.Size(213, 23);
+         this.btnPathsXml.TabIndex = 0;
+         this.btnPathsXml.Text = "Dump Manifest Paths (XML)";
+         this.btnPathsXml.UseVisualStyleBackColor = true;
+         this.btnPathsXml.Click += new System.EventHandler(this.btnPathsXml_Click);
+         // 
          // frmEntry
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -151,5 +165,6 @@
       private System.Windows.Forms.Button btnPaths;
       private System.Windows.Forms.Button btnDelta;
       private System.Windows.Forms.SplitContainer splitContainer;
+      private System.Windows.Forms.Button btnPathsXml;
    }
 }
